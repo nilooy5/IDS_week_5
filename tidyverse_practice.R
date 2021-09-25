@@ -20,3 +20,27 @@ tbl_2 <- tribble(
 )
 
 tbl_2
+tbl_3 <- tibble(
+  a = lubridate::now() + runif(1e3) * 86400,
+  b = lubridate::today() + runif(1e3) * 30,
+  c = 1:1e3,
+  d = runif(1e3),
+  e = sample(letters, 1e3, replace=TRUE)
+)
+
+tbl_3
+view(tbl_3)
+
+tbl4 <- tibble(x = 1:3, y = 3:1)
+tbl4
+tbl4[,1:2]
+class(tbl4[,1:2])
+tbl4[,1]
+class(tbl4[,1])
+str(tbl4$x)
+
+df5 <- data.frame(abc=1)
+df5$a # will not produce error since it's not strict
+
+tbl5 <- tibble(abc=1) # will produce error since no column is called "a"
+tbl5$a
